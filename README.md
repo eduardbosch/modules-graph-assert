@@ -6,7 +6,7 @@ A Gradle plugin that helps keep your module graph healthy and lean.
 - [Changelog](https://github.com/jraska/modules-graph-assert/releases)
 
 [![Build](https://github.com/jraska/modules-graph-assert/actions/workflows/build.yml/badge.svg)](https://github.com/jraska/modules-graph-assert/actions/workflows/build.yml)
-[![Gradle Plugin](https://img.shields.io/badge/Gradle-Plugin-green)](https://plugins.gradle.org/plugin/com.jraska.module.graph.assertion)
+[![Gradle Plugin](https://img.shields.io/badge/Gradle-Plugin-green)](https://plugins.gradle.org/plugin/com.eduardbosch.module.graph.assertion)
 
 <img width="1281" alt="example_graph" src="https://user-images.githubusercontent.com/6277721/70832705-18980e00-1df6-11ea-8b78-fc07ba570a2b.png">
 
@@ -36,7 +36,7 @@ In your `settings.gradle(.kts)`:
 
 ```kotlin
 plugins {
-  id("com.jraska.module.graph.assertion.settings") version "2.10.0"
+  id("com.eduardbosch.module.graph.assertion.settings") version "2.10.0"
 }
 ```
 
@@ -44,7 +44,7 @@ Or in Groovy:
 
 ```groovy
 plugins {
-  id "com.jraska.module.graph.assertion.settings" version "2.10.0"
+  id "com.eduardbosch.module.graph.assertion.settings" version "2.10.0"
 }
 ```
 
@@ -54,7 +54,7 @@ In your root `build.gradle(.kts)`:
 
 ```kotlin
 plugins {
-  id("com.jraska.module.graph.assertion")
+  id("com.eduardbosch.module.graph.assertion")
 }
 
 moduleGraphAssert {
@@ -68,7 +68,7 @@ Or in Groovy:
 
 ```groovy
 plugins {
-  id "com.jraska.module.graph.assertion"
+  id "com.eduardbosch.module.graph.assertion"
 }
 
 moduleGraphAssert {
@@ -170,6 +170,6 @@ includeBuild("path/to/modules-graph-assert")
 Root build.gradle:
 ```groovy
 plugins {
-  id('com.jraska.module.graph.assertion')
+  id('com.eduardbosch.module.graph.assertion')
 }
 ```

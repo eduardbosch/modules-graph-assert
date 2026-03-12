@@ -17,7 +17,7 @@ class ConfigurationAvoidanceTest {
     testProjectDir.newFile("settings.gradle").writeText(
       """
           plugins {
-              id 'com.jraska.module.graph.assertion.settings'
+              id 'com.eduardbosch.module.graph.assertion.settings'
           }
       """
     )
@@ -25,7 +25,7 @@ class ConfigurationAvoidanceTest {
     testProjectDir.newFile("build.gradle").writeText(
       """
           plugins {
-              id 'com.jraska.module.graph.assertion'
+              id 'com.eduardbosch.module.graph.assertion'
           }
           
           moduleGraphAssert {
