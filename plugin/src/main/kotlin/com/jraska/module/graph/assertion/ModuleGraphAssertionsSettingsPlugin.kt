@@ -11,7 +11,7 @@ import org.gradle.api.initialization.Settings
  *
  * ```kotlin
  * plugins {
- *     id("io.github.eduardbosch.module.graph.assertion.settings") version "2.10.0"
+ *     id("io.github.eduardbosch.module.graph.assertion.settings") version "2.10.1"
  * }
  * ```
  *

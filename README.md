@@ -28,7 +28,7 @@ A Gradle plugin that helps keep your module graph healthy and lean.
  
 ## Usage
 
-**IMPORTANT:** Starting from version 2.10.0, the plugin requires TWO plugins to be applied for Gradle isolated projects compatibility:
+**IMPORTANT:** Starting from version 2.10.1, the plugin requires TWO plugins to be applied for Gradle isolated projects compatibility:
 
 ### 1. Apply the Settings Plugin
 
@@ -36,7 +36,7 @@ In your `settings.gradle(.kts)`:
 
 ```kotlin
 plugins {
-  id("io.github.eduardbosch.module.graph.assertion.settings") version "2.10.0"
+  id("io.github.eduardbosch.module.graph.assertion.settings") version "2.10.1"
 }
 ```
 
@@ -44,7 +44,7 @@ Or in Groovy:
 
 ```groovy
 plugins {
-  id "io.github.eduardbosch.module.graph.assertion.settings" version "2.10.0"
+  id "io.github.eduardbosch.module.graph.assertion.settings" version "2.10.1"
 }
 ```
 
