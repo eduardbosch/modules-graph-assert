@@ -26,12 +26,12 @@ class ModuleGraphAssertionsPlugin : Plugin<Project> {
         |
         |1. In settings.gradle(.kts):
         |   plugins {
-        |       id("com.eduardbosch.module.graph.assertion.settings") version "2.10.0"
+        |       id("io.github.eduardbosch.module.graph.assertion.settings") version "2.10.0"
         |   }
         |
         |2. In any subproject build.gradle(.kts):
         |   plugins {
-        |       id("com.eduardbosch.module.graph.assertion")
+        |       id("io.github.eduardbosch.module.graph.assertion")
         |   }
         |
         |   moduleGraphAssert {

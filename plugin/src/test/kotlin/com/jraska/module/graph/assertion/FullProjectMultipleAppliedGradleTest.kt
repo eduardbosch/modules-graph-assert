@@ -14,7 +14,7 @@ class FullProjectMultipleAppliedGradleTest {
   fun setup() {
     testProjectDir.newFile("settings.gradle").writeText("""
       plugins {
-          id 'com.eduardbosch.module.graph.assertion.settings'
+          id 'io.github.eduardbosch.module.graph.assertion.settings'
       }
       include ':app', ':core', 'core-api', 'no-dependencies'
     """)
@@ -38,7 +38,7 @@ class FullProjectMultipleAppliedGradleTest {
     createModule(
       "app", content = """
           plugins {
-              id 'com.eduardbosch.module.graph.assertion'
+              id 'io.github.eduardbosch.module.graph.assertion'
           }
           apply plugin: 'java-library'
           
@@ -56,7 +56,7 @@ class FullProjectMultipleAppliedGradleTest {
     createModule(
       "no-dependencies", content = """
           plugins {
-              id 'com.eduardbosch.module.graph.assertion'
+              id 'io.github.eduardbosch.module.graph.assertion'
           }
           apply plugin: 'java-library'
           

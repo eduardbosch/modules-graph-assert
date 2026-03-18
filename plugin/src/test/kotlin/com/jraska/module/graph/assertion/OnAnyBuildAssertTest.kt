@@ -15,7 +15,7 @@ class OnAnyBuildAssertTest {
   fun setup() {
     testProjectDir.newFile("settings.gradle").writeText("""
       plugins {
-          id 'com.eduardbosch.module.graph.assertion.settings'
+          id 'io.github.eduardbosch.module.graph.assertion.settings'
       }
       include ':app', ':core', ':feature', 'core-api'
     """)
@@ -56,7 +56,7 @@ class OnAnyBuildAssertTest {
     createModule(
       "app", content = """
           plugins {
-              id 'com.eduardbosch.module.graph.assertion'
+              id 'io.github.eduardbosch.module.graph.assertion'
           }
           apply plugin: 'java-library'
           

@@ -31,7 +31,7 @@ java {
   targetCompatibility JavaVersion.VERSION_11
 }
 
-group = 'com.eduardbosch.module.graph.assertion'
+group = 'io.github.eduardbosch.module.graph.assertion'
 
 gradlePlugin {
   website = 'https://github.com/eduardbosch/modules-graph-assert'
@@ -39,7 +39,7 @@ gradlePlugin {
 
   plugins {
     modulesGraphAssert {
-      id = 'com.eduardbosch.module.graph.assertion'
+      id = 'io.github.eduardbosch.module.graph.assertion'
       version = VERSION_NAME
       displayName = 'Modules Graph Assert'
       description = 'Gradle plugin to keep your modules graph healthy and lean.'
@@ -47,7 +47,7 @@ gradlePlugin {
       tags.addAll('graph', 'assert', 'build speed', 'android', 'java', 'kotlin', 'quality', 'multiprojects', 'module', 'isolated-projects')
     }
     modulesGraphAssertSettings {
-      id = 'com.eduardbosch.module.graph.assertion.settings'
+      id = 'io.github.eduardbosch.module.graph.assertion.settings'
       version = VERSION_NAME
       displayName = 'Modules Graph Assert Settings Plugin'
       description = 'Settings plugin for isolated projects compatibility.'
