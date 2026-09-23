@@ -6,23 +6,15 @@ import org.gradle.api.initialization.Settings
 import org.gradle.api.invocation.Gradle
 import org.gradle.api.provider.Provider
 
-fun Project.registerDependencyCollectorService(
-  configurations: Set<String> = Api.API_IMPLEMENTATION_CONFIGURATIONS,
-): Provider<DependencyCollectorService> =
-  gradle.registerDependencyCollectorService(configurations)
+fun Project.registerDependencyCollectorService(): Provider<DependencyCollectorService> =
+  gradle.registerDependencyCollectorService()
 
-fun Settings.registerDependencyCollectorService(
-  configurations: Set<String> = Api.API_IMPLEMENTATION_CONFIGURATIONS,
-): Provider<DependencyCollectorService> =
-  gradle.registerDependencyCollectorService(configurations)
+fun Settings.registerDependencyCollectorService(): Provider<DependencyCollectorService> =
+  gradle.registerDependencyCollectorService()
 
-private fun Gradle.registerDependencyCollectorService(
-  configurations: Set<String>,
-): Provider<DependencyCollectorService> =
+private fun Gradle.registerDependencyCollectorService(): Provider<DependencyCollectorService> =
   sharedServices
-    .registerIfAbsent(SERVICE_NAME, DependencyCollectorService::class.java) {
-      it.parameters.configurations.set(configurations)
-    }
+    .registerIfAbsent(SERVICE_NAME, DependencyCollectorService::class.java) {}
 
 fun Project.getDependencyCollectorService(): DependencyCollectorService? =
   gradle

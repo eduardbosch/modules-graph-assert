@@ -32,9 +32,7 @@ class ModuleGraphAssertionsSettingsPlugin : Plugin<Settings> {
     settings.gradle.lifecycle.beforeProject { project ->
       project.afterEvaluate {
         project.getDependencyCollectorService()?.let { service ->
-          val configs = service.getConfigurations()
-          val deps = project.collectOwnDependencies(configs)
-          service.registerProjectDependencies(project.moduleDisplayName(), deps)
+          service.registerProjectDependencies(project.moduleDisplayName(), project.collectOwnDependencies())
 
           project.extractOwnAlias()?.let { alias ->
             service.registerProjectAlias(project.moduleDisplayName(), alias)

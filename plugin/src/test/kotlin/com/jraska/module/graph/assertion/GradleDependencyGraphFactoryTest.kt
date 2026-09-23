@@ -57,8 +57,8 @@ class GradleDependencyGraphFactoryTest {
 
   @Test
   fun generatesProperGraph() {
-    rootProject!!.collectAndRegisterDependencies(Api.API_IMPLEMENTATION_CONFIGURATIONS)
-    val dependencyGraph = GradleDependencyGraphFactory.create(appProject, dependencyCollectorService)
+    rootProject!!.collectAndRegisterDependencies()
+    val dependencyGraph = GradleDependencyGraphFactory.create(appProject, dependencyCollectorService, Api.API_IMPLEMENTATION_CONFIGURATIONS)
 
     val graphvizText = GraphvizWriter.toGraphviz(dependencyGraph)
 
@@ -67,8 +67,8 @@ class GradleDependencyGraphFactoryTest {
 
   @Test
   fun generatesWithTestImplementatinoGraph() {
-    rootProject!!.collectAndRegisterDependencies(setOf("implementation", "testImplementation"))
-    val dependencyGraph = GradleDependencyGraphFactory.create(appProject, dependencyCollectorService)
+    rootProject!!.collectAndRegisterDependencies()
+    val dependencyGraph = GradleDependencyGraphFactory.create(appProject, dependencyCollectorService, setOf("implementation", "testImplementation"))
 
     val graphvizText = GraphvizWriter.toGraphviz(dependencyGraph)
 
@@ -77,8 +77,8 @@ class GradleDependencyGraphFactoryTest {
 
   @Test
   fun generatesSingleModuleGraphOnNoDependencyModule() {
-    rootProject!!.collectAndRegisterDependencies(Api.API_IMPLEMENTATION_CONFIGURATIONS)
-    val dependencyGraph = GradleDependencyGraphFactory.create(coreProject, dependencyCollectorService)
+    rootProject!!.collectAndRegisterDependencies()
+    val dependencyGraph = GradleDependencyGraphFactory.create(coreProject, dependencyCollectorService, Api.API_IMPLEMENTATION_CONFIGURATIONS)
 
     val graphvizText = GraphvizWriter.toGraphviz(dependencyGraph)
 

@@ -16,8 +16,7 @@ import org.gradle.language.base.plugins.LifecycleBasePlugin.VERIFICATION_GROUP
 class ModuleGraphAssertionsPlugin : Plugin<Project> {
 
   private val moduleGraph by lazy {
-    val projectDependencies = dependencyCollectorService.getAllProjectDependencies()
-    if (projectDependencies.isEmpty()) {
+    if (!dependencyCollectorService.hasCollectedProjects()) {
       throw IllegalStateException("""
         |
         |No project dependencies were collected. This likely means the settings plugin is not applied.
@@ -43,7 +42,7 @@ class ModuleGraphAssertionsPlugin : Plugin<Project> {
         |""".trimMargin())
     }
 
-    GradleDependencyGraphFactory.create(evaluatedProject, dependencyCollectorService).serializableGraph()
+    GradleDependencyGraphFactory.create(evaluatedProject, dependencyCollectorService, configurationsToLook).serializableGraph()
   }
 
   private val aliases by lazy {
@@ -62,7 +61,7 @@ class ModuleGraphAssertionsPlugin : Plugin<Project> {
       configurationsToLook = graphRules.configurations
       dependencyCollectorService =
         project
-          .registerDependencyCollectorService(graphRules.configurations)
+          .registerDependencyCollectorService()
           .get()
 
       // Force initialization of the graph during projectsEvaluated
