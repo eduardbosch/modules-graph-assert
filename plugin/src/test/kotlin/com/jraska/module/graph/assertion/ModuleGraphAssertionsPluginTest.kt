@@ -16,7 +16,7 @@ class ModuleGraphAssertionsPluginTest {
     project = ProjectBuilder.builder().withName("app").build() as DefaultProject
     project.plugins.apply(JavaLibraryPlugin::class.java)
     project.registerDependencyCollectorService()
-    project.collectAndRegisterDependencies(Api.API_IMPLEMENTATION_CONFIGURATIONS)
+    project.collectAndRegisterDependencies()
   }
 
   @Test

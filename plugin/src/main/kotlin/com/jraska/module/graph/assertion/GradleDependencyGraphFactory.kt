@@ -5,8 +5,12 @@ import org.gradle.api.Project
 
 object GradleDependencyGraphFactory {
 
-  fun create(project: Project, service: DependencyCollectorService): DependencyGraph {
-    val modulesWithDependencies = service.getAllProjectDependencies()
+  fun create(
+    project: Project,
+    service: DependencyCollectorService,
+    configurationsToLook: Set<String>,
+  ): DependencyGraph {
+    val modulesWithDependencies = service.getAllProjectDependencies(configurationsToLook)
     val dependencies = modulesWithDependencies.flatMap { module ->
       module.second.map { module.first to it }
     }
