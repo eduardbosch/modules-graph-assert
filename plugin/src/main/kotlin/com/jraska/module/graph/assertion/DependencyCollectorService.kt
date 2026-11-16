@@ -1,6 +1,7 @@
 package com.jraska.module.graph.assertion
 
 import org.gradle.api.Project
+import org.gradle.api.artifacts.Configuration
 import org.gradle.api.artifacts.ProjectDependency
 import org.gradle.api.services.BuildService
 import org.gradle.api.services.BuildServiceParameters
@@ -49,8 +50,19 @@ abstract class DependencyCollectorService : BuildService<BuildServiceParameters.
 fun Project.collectOwnDependencies(): Map<String, List<String>> =
   configurations
     .associate { configuration ->
-      configuration.name to configuration.dependencies
-        .filterIsInstance<ProjectDependency>()
+      configuration.name to configuration.ownProjectDependencies()
         .map { project(it.path).moduleDisplayName() }
     }
     .filterValues { it.isNotEmpty() }
+
+private fun Configuration.ownProjectDependencies(): List<ProjectDependency> {
+  val projectDependencies = dependencies.withType(ProjectDependency::class.java)
+  if (!isCanBeResolved) {
+    return projectDependencies.toList()
+  }
+
+  // Iteration realizes addAllLater providers before plugins such as AGP KMP fill them
+  val realized = mutableListOf<ProjectDependency>()
+  projectDependencies.configureEach { realized.add(it) }
+  return realized.toList()
+}
